@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#text").blur(function() {
+					//当元素失去焦点时发生 blur 事件。
+//blur() 函数触发 blur 事件，或者如果设置了 function 参数，该函数也可规定当发生 blur 事件时执行的代码。
+					var reg = /^[a-zA-Z0-9]{6,12}$/;
+					//正则表达式   /^[]{}$/
+					if(!reg.test($("#text").val())) {
+						//test() 方法用于检测一个字符串是否匹配某个模式.
+						$("#10").html('<font style="color: red; font-size: 12px;">请输入正确的账号格式</font>')
+						//不匹配正则表达式则返回false 且在表单后加上提示  jq返回false则不在运行false下的代码
+						return false;
+					}
+					$("#10").html('<font style="color: green; font-size: 12px;">输入正确</font>')
+					return true
+					//匹配正则表达式则返回true 继续运行剩余代码
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+
+		<h1>欢迎来到太阳网</h1>
+		<form action="" method="get">
+			<fieldset id="">
+				<legend>注册</legend>
+				账号:<input type="text" value="" placeholder="请输入账号" id="text" />
+				<span id="10">(账号6~12之间 任意字符)</span>
+
+				<br />密码:<input type="password" value="" placeholder="请输入密码" id="pwd2" class="1" />
+				<span style="font-size: 10px; color: red;"></span>
+
+				<br/>&emsp;&emsp;&thinsp;<input type="password" value="" placeholder="请再次输入密码" id="pwd2" />
+				<span style="font-size: 10px; color: red;"></span>
+
+				<br />&emsp;&emsp;男<input type="radio" value="" name="sex" /> 女
+				<input type="radio" name="sex" value="" />
+
+				<!--	<br/>邮箱:<input type="email" value="" placeholder="请输入邮箱" pattern="" />-->
+
+				<br/><input type="button" value="注册" id="button" />
+
+			</fieldset>
+
+		</form>
+	</body>
+
+</html>
